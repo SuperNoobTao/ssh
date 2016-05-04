@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="cn.edu.zucc.action" extends="struts-default">
+
+        <interceptors>
+            <interceptor name="testinterceptor" class="cn.edu.zucc.util.TestIntercepor"></interceptor>
+            <interceptor-stack name="teststack">
+                <interceptor-ref name="testinterceptor"/>
+                <interceptor-ref name="timer"/>
+
+            </interceptor-stack>
+        </interceptors>
+
+
+
+        <action name="UserAction_login" class="cn.edu.zucc.action.UserAction" method="login">
+            <result name="showuser">/showuser.jsp</result>
+            <result name="error">/index.jsp</result>
+            <interceptor-ref name="params"></interceptor-ref>
+            <interceptor-ref name="testinterceptor"/>
+
+        </action>
+        <action name="UserAction_register" class="cn.edu.zucc.action.UserAction" method="register">
+            <result name="showuser1">/showuser.jsp</result>
+            <result name="error1">/register.jsp</result>
+            <interceptor-ref name="params"></interceptor-ref>
+            <interceptor-ref name="testinterceptor"/>
+        </action>
+
+</package>
+
+</struts>
