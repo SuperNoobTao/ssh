@@ -1,8 +1,12 @@
 package cn.edu.zucc.util;
 
+import cn.edu.zucc.action.MyAction;
+import cn.edu.zucc.action.UserAction;
 import cn.edu.zucc.model.TbUserEntity;
 import cn.edu.zucc.service.UserService;
 import cn.edu.zucc.service.UserServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by shentao on 2016/5/3.
@@ -40,6 +44,24 @@ public class test {
         int i =userDao.add(user);
         System.out.print(i);
 
+/**
+ * spring测试
+ */
+//        ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
+//        UserAction action = (UserAction) context.getBean("userServiceImpl");
+//        try {
+//            if(action.login("12","12")!=null){
+//                System.out.print("账号密码正确");
+//            }else{
+//                System.out.print("账号密码错误");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+        ApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"ApplicationContext.xml"});
+        MyAction action2 = (MyAction) context.getBean("myAction");
+        action2.abc();
 
 
     }

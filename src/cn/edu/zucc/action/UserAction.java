@@ -3,15 +3,26 @@ package cn.edu.zucc.action;
 import cn.edu.zucc.model.TbUserEntity;
 import cn.edu.zucc.model.UserBean;
 import cn.edu.zucc.service.UserService;
-import cn.edu.zucc.service.UserServiceImpl;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * Created by shentao on 2016/5/3.
  */
-public class UserAction {
-    UserService userService = new UserServiceImpl();
+public class UserAction extends ActionSupport {
+    private UserService userService;
     private UserBean user = new UserBean();
+    public UserAction(){}
+
+
+    public UserService getUserService() {
+        return userService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
 
     public void setUser(UserBean user) {
         this.user = user;
@@ -48,6 +59,9 @@ public class UserAction {
             ActionContext.getContext().getSession().put("username", this.getUser().getUsername());
             return "showuser1";
         }
+    public void abc(){
+        this.userService.service();
 
+    }
 
     }

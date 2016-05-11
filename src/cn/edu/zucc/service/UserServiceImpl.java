@@ -25,5 +25,7 @@ public class UserServiceImpl implements UserService{
         return userDao.login(username,password);
     }
 
-
+      public void service(){
+        System.out.println("MyService");
+    }
 }

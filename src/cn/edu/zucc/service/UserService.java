@@ -10,4 +10,5 @@ public interface UserService {
     public int add(TbUserEntity webUser);
     public TbUserEntity login(String username, String password);
 
+    public void service();
 }

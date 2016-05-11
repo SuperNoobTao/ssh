@@ -11,7 +11,7 @@ public class TbUserEntity {
     private Integer id;
     private String username;
     private String pwd;
-
+    private String usertype;
 
 
     @Id
@@ -44,6 +44,19 @@ public class TbUserEntity {
     public void setPwd(String pwd) {
         this.pwd = pwd;
     }
+
+    @Basic
+    @Column(name = "usertype")
+    public String getUsertype() {
+        return usertype;
+    }
+
+    public void setUsertype(String usertype) {
+        this.usertype = usertype;
+    }
+
+
+
 
     @Override
     public boolean equals(Object o) {
